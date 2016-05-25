@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol FloatingWindowTouchDelegate;
 
-
+@protocol FloatingWindowTouchDelegate <NSObject>
+//悬浮窗点击事件
+-(void)assistiveTocuhs;
+@end
 
 @interface FloatingWindow : UIWindow
 {
@@ -23,7 +25,7 @@
 @property(nonatomic ,assign)CGRect startFrame;
 
 
-@property(nonatomic ,unsafe_unretained)id<FloatingWindowTouchDelegate> assistiveDelegate;
+@property(nonatomic ,strong)id<FloatingWindowTouchDelegate> floatDelegate;
 - (id)initWithFrame:(CGRect)frame imageName:(NSString*)name;
 - (void)close;
 - (void)startWithTime:(NSInteger) time presentview:(UIView *)presentView inRect:(CGRect) rect;
@@ -33,8 +35,3 @@
 
 
 
-@protocol FloatingWindowTouchDelegate <NSObject>
-@optional
-//悬浮窗点击事件
--(void)assistiveTocuhs;
-@end

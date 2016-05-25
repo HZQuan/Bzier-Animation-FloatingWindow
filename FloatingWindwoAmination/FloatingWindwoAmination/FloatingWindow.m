@@ -250,7 +250,7 @@ static const float timeSplit = 1.f / 3.f;
     if (self.isExit) {
         self.isExit = NO;
         self.presentView.layer.mask = nil;
-        [_assistiveDelegate assistiveTocuhs];
+        [self.floatDelegate assistiveTocuhs];
     } else {
         [self clipcircleImageFromView:self.presentView inRect:self.startFrame];
         [self.presentView removeFromSuperview];

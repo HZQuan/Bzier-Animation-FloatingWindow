@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SecondViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blueColor];
+    UIButton *presentButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 40, 40)];
+    [presentButton setTitle:@"进入" forState:UIControlStateNormal];
+    [presentButton addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
+    [presentButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:presentButton];
+
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void) click {
+    
+    SecondViewController *secondViewController = [[SecondViewController alloc] init];
+    
+    UINavigationController *navigationcontoller = [[UINavigationController alloc]initWithRootViewController:secondViewController];
+    navigationcontoller.navigationBar.hidden = YES;
+    [self presentViewController:navigationcontoller animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

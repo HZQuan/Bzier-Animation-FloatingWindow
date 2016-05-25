@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55C1001D1CF5899700F870AD /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1001C1CF5899700F870AD /* SecondViewController.m */; };
+		55C100201CF58B6600F870AD /* av_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1001E1CF58B6600F870AD /* av_call.png */; };
+		55C100211CF58B6600F870AD /* av_call@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 55C1001F1CF58B6600F870AD /* av_call@3x.png */; };
 		55C1FFA31CF5840F00F870AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1FFA21CF5840F00F870AD /* main.m */; };
 		55C1FFA61CF5840F00F870AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1FFA51CF5840F00F870AD /* AppDelegate.m */; };
 		55C1FFA91CF5840F00F870AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1FFA81CF5840F00F870AD /* ViewController.m */; };
@@ -36,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55C1001B1CF5899700F870AD /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		55C1001C1CF5899700F870AD /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		55C1001E1CF58B6600F870AD /* av_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = av_call.png; sourceTree = "<group>"; };
+		55C1001F1CF58B6600F870AD /* av_call@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "av_call@3x.png"; sourceTree = "<group>"; };
 		55C1FF9E1CF5840F00F870AD /* FloatingWindwoAmination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloatingWindwoAmination.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C1FFA21CF5840F00F870AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55C1FFA41CF5840F00F870AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +122,8 @@
 				55C1FFA11CF5840F00F870AD /* Supporting Files */,
 				55C1FFD41CF5874F00F870AD /* FloatingWindow.h */,
 				55C1FFD51CF5874F00F870AD /* FloatingWindow.m */,
+				55C1001B1CF5899700F870AD /* SecondViewController.h */,
+				55C1001C1CF5899700F870AD /* SecondViewController.m */,
 			);
 			path = FloatingWindwoAmination;
 			sourceTree = "<group>";
@@ -122,6 +131,8 @@
 		55C1FFA11CF5840F00F870AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				55C1001E1CF58B6600F870AD /* av_call.png */,
+				55C1001F1CF58B6600F870AD /* av_call@3x.png */,
 				55C1FFA21CF5840F00F870AD /* main.m */,
 			);
 			name = "Supporting Files";
@@ -248,7 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C100201CF58B6600F870AD /* av_call.png in Resources */,
 				55C1FFB11CF5840F00F870AD /* LaunchScreen.storyboard in Resources */,
+				55C100211CF58B6600F870AD /* av_call@3x.png in Resources */,
 				55C1FFAE1CF5840F00F870AD /* Assets.xcassets in Resources */,
 				55C1FFAC1CF5840F00F870AD /* Main.storyboard in Resources */,
 			);
@@ -275,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C1001D1CF5899700F870AD /* SecondViewController.m in Sources */,
 				55C1FFA91CF5840F00F870AD /* ViewController.m in Sources */,
 				55C1FFA61CF5840F00F870AD /* AppDelegate.m in Sources */,
 				55C1FFA31CF5840F00F870AD /* main.m in Sources */,
