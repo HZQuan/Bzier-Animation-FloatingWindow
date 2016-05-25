@@ -15,6 +15,7 @@
 		55C1FFB11CF5840F00F870AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C1FFAF1CF5840F00F870AD /* LaunchScreen.storyboard */; };
 		55C1FFBC1CF5840F00F870AD /* FloatingWindwoAminationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1FFBB1CF5840F00F870AD /* FloatingWindwoAminationTests.m */; };
 		55C1FFC71CF5840F00F870AD /* FloatingWindwoAminationUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1FFC61CF5840F00F870AD /* FloatingWindwoAminationUITests.m */; };
+		55C1FFD61CF5874F00F870AD /* FloatingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C1FFD51CF5874F00F870AD /* FloatingWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		55C1FFC21CF5840F00F870AD /* FloatingWindwoAminationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatingWindwoAminationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C1FFC61CF5840F00F870AD /* FloatingWindwoAminationUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FloatingWindwoAminationUITests.m; sourceTree = "<group>"; };
 		55C1FFC81CF5840F00F870AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C1FFD41CF5874F00F870AD /* FloatingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingWindow.h; sourceTree = "<group>"; };
+		55C1FFD51CF5874F00F870AD /* FloatingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloatingWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				55C1FFAF1CF5840F00F870AD /* LaunchScreen.storyboard */,
 				55C1FFB21CF5840F00F870AD /* Info.plist */,
 				55C1FFA11CF5840F00F870AD /* Supporting Files */,
+				55C1FFD41CF5874F00F870AD /* FloatingWindow.h */,
+				55C1FFD51CF5874F00F870AD /* FloatingWindow.m */,
 			);
 			path = FloatingWindwoAmination;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				55C1FFA91CF5840F00F870AD /* ViewController.m in Sources */,
 				55C1FFA61CF5840F00F870AD /* AppDelegate.m in Sources */,
 				55C1FFA31CF5840F00F870AD /* main.m in Sources */,
+				55C1FFD61CF5874F00F870AD /* FloatingWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +504,7 @@
 				55C1FFCD1CF5840F00F870AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55C1FFCE1CF5840F00F870AD /* Build configuration list for PBXNativeTarget "FloatingWindwoAminationTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +513,7 @@
 				55C1FFD01CF5840F00F870AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55C1FFD11CF5840F00F870AD /* Build configuration list for PBXNativeTarget "FloatingWindwoAminationUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +522,7 @@
 				55C1FFD31CF5840F00F870AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
