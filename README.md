@@ -15,7 +15,7 @@
  开启悬浮窗       [deleage.floatWindow startWithTime:30 presentview:self.view inRect:CGRectMake(100, 100, 100, 100)];</br>
 <br> 注意事项</br>
 <br> 如果无法选择模拟器，请调整你的development</br>
-<br> 其他问题请联系我qq 1634104309 </br>
+<br> 项目持续更新优化中 如果遇到无法解决的问题请联系我  qq 1634104309 </br>
  
  
   
