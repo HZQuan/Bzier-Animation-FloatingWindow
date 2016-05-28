@@ -14,9 +14,9 @@
  <br>实现点击小圆点的委托       deleage.floatWindow.floatDelegate = weakSelf;</br>
  开启悬浮窗       [deleage.floatWindow startWithTime:30 presentview:self.view inRect:CGRectMake(100, 100, 100, 100)];</br>
 <h2> MORE</h2>
-<br> 如果无法选择模拟器，请调整你的development</br>
-<br> 欢迎大家fork 和 pull </br>
-<br> 项目持续更新优化中 如果遇到无法解决的问题请联系我  qq 1634104309 </br>
+<br> If you can't choice simulator，please change your development </br>
+<br> Welcome fork and pull </br>
+<br> If you find bug , please comtact me .  email 1634104309@qq.com qq:1634104309 </br>
  
  
   
