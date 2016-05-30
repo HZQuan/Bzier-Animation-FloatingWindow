@@ -49,7 +49,12 @@
 -(void)assistiveTocuhs {
     
     AppDelegate *deleage = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    //[deleage.floatWindow close];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self];
+    navigationController.navigationBar.hidden = YES;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:navigationController animated:NO completion:^{
+        
+    }];
+    [deleage.floatWindow close];
     
 }
 
