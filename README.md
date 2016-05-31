@@ -16,6 +16,7 @@
 <h2> MORE</h2>
 <br> If you can't choice simulator，please change your development </br>
 <br> Welcome fork and pull </br>
+<br> thanks everyone's star'</br>
 <br> If you find bug , please comtact me .  email 1634104309@qq.com qq:1634104309 </br>
 
 <br>android 技术交流群：2308505 </br>
