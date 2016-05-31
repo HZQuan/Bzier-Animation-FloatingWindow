@@ -11,7 +11,7 @@
 
 @protocol FloatingWindowTouchDelegate <NSObject>
 //悬浮窗点击事件
--(void)assistiveTocuhs;
+- (void)assistiveTocuhs;
 @end
 
 @interface FloatingWindow : UIWindow
@@ -23,6 +23,7 @@
 @property(nonatomic ,strong)UIImage *showImage;
 @property(nonatomic ,strong)UIImageView *showImageView;
 @property(nonatomic ,assign)CGRect startFrame;
+@property(nonatomic ,assign)BOOL isCannotTouch;
 
 
 @property(nonatomic ,strong)id<FloatingWindowTouchDelegate> floatDelegate;

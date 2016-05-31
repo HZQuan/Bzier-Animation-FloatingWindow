@@ -30,7 +30,7 @@
     
     
     AppDelegate *deleage = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
+    deleage.floatWindow.isCannotTouch = NO;
     __weak typeof (self) weakSelf = self;
     deleage.floatWindow.floatDelegate = weakSelf;
     
@@ -49,12 +49,13 @@
 -(void)assistiveTocuhs {
     
     AppDelegate *deleage = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self];
-    navigationController.navigationBar.hidden = YES;
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:navigationController animated:NO completion:^{
-        
-    }];
-    [deleage.floatWindow close];
+    deleage.floatWindow.isCannotTouch = YES;
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self];
+//    navigationController.navigationBar.hidden = YES;
+//    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:navigationController animated:NO completion:^{
+//        
+//    }];
+//    [deleage.floatWindow close];
     
 }
 

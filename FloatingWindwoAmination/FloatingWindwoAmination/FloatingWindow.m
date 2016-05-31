@@ -16,13 +16,13 @@
 
 static const float timeSplit = 1.f / 3.f;
 @interface FloatingWindow ()
-@property (nonatomic ,strong) UILabel *timeLable;
-@property (nonatomic ,strong) NSTimer *timer;
-@property (nonatomic ,copy) NSString *imageNameString;
-@property (nonatomic ,strong) UIView *presentView;
-@property (nonatomic ,strong) CAAnimation *samllAnimation;
-@property (nonatomic ,assign) BOOL isExit;
-@property (assign, nonatomic) BOOL timeStart;
+@property (nonatomic ,strong)UILabel *timeLable;
+@property (nonatomic ,strong)NSTimer *timer;
+@property (nonatomic ,copy)NSString *imageNameString;
+@property (nonatomic ,strong)UIView *presentView;
+@property (nonatomic ,strong)CAAnimation *samllAnimation;
+@property (nonatomic ,assign)BOOL isExit;
+@property (assign, nonatomic)BOOL timeStart;
 @end
 
 @implementation FloatingWindow
@@ -313,7 +313,9 @@ static const float timeSplit = 1.f / 3.f;
 #pragma mark -触摸事件监听
 -(void)locationChange:(UIPanGestureRecognizer*)p
 {
-    //[[UIApplication sharedApplication] keyWindow]
+    if (self.isCannotTouch) {
+        return;
+    }
     CGPoint panPoint = [p locationInView:[[UIApplication sharedApplication] keyWindow]];
     if(p.state == UIGestureRecognizerStateBegan)
     {
@@ -405,6 +407,9 @@ static const float timeSplit = 1.f / 3.f;
 
 - (void)click:(UITapGestureRecognizer*)t
 {
+    if (self.isCannotTouch) {
+        return;
+    }
     self.isExit = YES;
     [self makeOuttoAnimation];
     

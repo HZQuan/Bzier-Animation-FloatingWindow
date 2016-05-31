@@ -24,18 +24,15 @@
     [presentButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:presentButton];
 
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void) click:(id)sender{
+- (void)click:(id)sender{
     UIButton *button = sender;
     button.userInteractionEnabled = NO;
     SecondViewController *secondViewController = [[SecondViewController alloc] init];
-    
     UINavigationController *navigationcontoller = [[UINavigationController alloc]initWithRootViewController:secondViewController];
     navigationcontoller.navigationBar.hidden = YES;
     [self presentViewController:navigationcontoller animated:YES completion:^{
-        
     }];
 }
 
