@@ -8,6 +8,7 @@
 #import "FloatingWindow.h"
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/CAAnimation.h>
+
 #define WIDTH self.frame.size.width
 #define HEIGHT self.frame.size.height
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
@@ -15,22 +16,26 @@
 
 
 static const float timeSplit = 1.f / 3.f;
+
 @interface FloatingWindow ()
-@property (nonatomic ,strong)UILabel *timeLable;
-@property (nonatomic ,strong)NSTimer *timer;
-@property (nonatomic ,copy)NSString *imageNameString;
-@property (nonatomic ,strong)UIView *presentView;
-@property (nonatomic ,strong)CAAnimation *samllAnimation;
-@property (nonatomic ,assign)BOOL isExit;
-@property (assign, nonatomic)BOOL timeStart;
+
+@property (nonatomic ,strong) UILabel *timeLable;
+@property (nonatomic ,strong) NSTimer *timer;
+@property (nonatomic ,copy) NSString *imageNameString;
+@property (nonatomic ,strong) UIView *presentView;
+@property (nonatomic ,strong) CAAnimation *samllAnimation;
+@property (nonatomic ,assign) BOOL isExit;
+@property (assign ,nonatomic) BOOL timeStart;
 @end
 
 @implementation FloatingWindow
+
 {
     UIImageView * _phoneFlowImageView1;
     UIImageView * _phoneFlowImageView2;
     UIImageView * _phoneFlowImageView3;
 }
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -39,6 +44,7 @@ static const float timeSplit = 1.f / 3.f;
     }
     return self;
 }
+
 -(id)initWithFrame:(CGRect)frame imageName:(NSString *)name
 {
     if(self = [super initWithFrame:frame])
@@ -101,7 +107,7 @@ static const float timeSplit = 1.f / 3.f;
 }
 
 #pragma mark--- 开始和结束
-- (void)startWithTime:(NSInteger) time presentview:(UIView *)presentView inRect:(CGRect) rect{
+- (void)startWithTime:(NSInteger) time presentview:(UIView *)presentView inRect:(CGRect)rect{
     self.hidden = NO;
     _imageView.hidden = YES;
     self.timeLable.hidden = YES;
@@ -118,15 +124,14 @@ static const float timeSplit = 1.f / 3.f;
 }
 
 - (void)close {
-    
     self.hidden = YES;
-    
     self.presentView = nil;
     [self.timer invalidate];
     self.showImageView = nil;
     self.showImage = nil;
     self.timer = nil;
 }
+
 - (void)start {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(changeTimeLable) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
@@ -247,7 +252,6 @@ static const float timeSplit = 1.f / 3.f;
  */
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
-    
     if (self.isExit) {
         self.isExit = NO;
         self.presentView.layer.mask = nil;
@@ -256,11 +260,7 @@ static const float timeSplit = 1.f / 3.f;
         [self clipcircleImageFromView:self.presentView inRect:self.startFrame];
         [self.presentView removeFromSuperview];
         [self makeIntoAnimation];
-        
     }
-    
-    
-    
 }
 
 - (void)circleSmallerWithView:(UIView *)view {
@@ -305,10 +305,6 @@ static const float timeSplit = 1.f / 3.f;
     [maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
     
 }
-
-
-
-
 
 #pragma mark -触摸事件监听
 -(void)locationChange:(UIPanGestureRecognizer*)p
@@ -419,7 +415,6 @@ static const float timeSplit = 1.f / 3.f;
 
 - (NSString *)changeTimeFormater:(NSInteger)time{
     NSInteger minutecount = time / 60;
-    
     NSInteger secondcount = time % 60;
     NSString *timeString;
     if (minutecount > 60) {
@@ -475,7 +470,7 @@ static const float timeSplit = 1.f / 3.f;
 #pragma mark -裁剪库
 
 
-- (UIImage *)imageFromView:(UIView *) theView
+- (UIImage *)imageFromView:(UIView *)theView
 {
     
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(theView.frame),
@@ -492,7 +487,7 @@ static const float timeSplit = 1.f / 3.f;
 
 
 
--( UIImage *)getEllipseImageWithImage:(UIImage *)originImage size:(CGSize) size frame:(CGRect) rect
+- ( UIImage *)getEllipseImageWithImage:(UIImage *)originImage size:(CGSize)size frame:(CGRect)rect
 {
     //开启上下文
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);

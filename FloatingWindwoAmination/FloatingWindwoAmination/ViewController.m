@@ -16,6 +16,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blueColor];
     UIButton *presentButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 40, 40)];
@@ -27,6 +28,7 @@
 }
 
 - (void)click:(id)sender{
+    
     UIButton *button = sender;
     button.userInteractionEnabled = NO;
     SecondViewController *secondViewController = [[SecondViewController alloc] init];
@@ -34,11 +36,13 @@
     navigationcontoller.navigationBar.hidden = YES;
     [self presentViewController:navigationcontoller animated:YES completion:^{
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 @end

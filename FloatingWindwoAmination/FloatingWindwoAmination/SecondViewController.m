@@ -27,8 +27,6 @@
 }
 
 - (void) click {
-    
-    
     AppDelegate *deleage = (AppDelegate *)[UIApplication sharedApplication].delegate;
     deleage.floatWindow.isCannotTouch = NO;
     __weak typeof (self) weakSelf = self;
@@ -39,8 +37,6 @@
     [self.navigationController dismissViewControllerAnimated:NO completion:^{
         
     }];
-
-
 }
 
 
@@ -61,7 +57,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-   
 }
 
 @end

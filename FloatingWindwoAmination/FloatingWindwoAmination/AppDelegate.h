@@ -10,8 +10,8 @@
 #import "FloatingWindow.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property(strong, nonatomic)UIWindow *window;
-@property(strong, nonatomic)FloatingWindow *floatWindow;
+@property(strong ,nonatomic) UIWindow *window;
+@property(strong ,nonatomic) FloatingWindow *floatWindow;
 
 @end
 
