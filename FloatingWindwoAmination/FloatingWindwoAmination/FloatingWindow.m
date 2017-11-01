@@ -17,7 +17,7 @@
 
 static const float timeSplit = 1.f / 3.f;
 
-@interface FloatingWindow ()
+@interface FloatingWindow () <CAAnimationDelegate>
 
 @property (nonatomic ,strong) UILabel *timeLable;
 @property (nonatomic ,strong) NSTimer *timer;
@@ -34,6 +34,10 @@ static const float timeSplit = 1.f / 3.f;
     UIImageView * _phoneFlowImageView1;
     UIImageView * _phoneFlowImageView2;
     UIImageView * _phoneFlowImageView3;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -107,7 +111,7 @@ static const float timeSplit = 1.f / 3.f;
 }
 
 #pragma mark--- 开始和结束
-- (void)startWithTime:(NSInteger) time presentview:(UIView *)presentView inRect:(CGRect)rect{
+- (void)startWithTime:(NSInteger)time presentview:(UIView *)presentView inRect:(CGRect)rect{
     self.hidden = NO;
     _imageView.hidden = YES;
     self.timeLable.hidden = YES;
@@ -147,15 +151,16 @@ static const float timeSplit = 1.f / 3.f;
     static BOOL oem = false;
     oem = !oem;
     if(oem && _timeStart) {
+        __weak typeof(self) weakself = self;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView transitionWithView:self duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
+            [UIView transitionWithView:weakself duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
                 _phoneFlowImageView1.alpha = 1.f;
             } completion:^(BOOL finished) {
                 ;
             }];
         });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * timeSplit * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView transitionWithView:self duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
+            [UIView transitionWithView:weakself duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
                 _phoneFlowImageView1.alpha = 0.f;
             } completion:^(BOOL finished) {
                 ;
@@ -165,7 +170,7 @@ static const float timeSplit = 1.f / 3.f;
         
         //_fimageView2
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * timeSplit * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView transitionWithView:self duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
+            [UIView transitionWithView:weakself duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
                 _phoneFlowImageView2.alpha = 1.f;
             } completion:^(BOOL finished) {
                 ;
@@ -181,14 +186,14 @@ static const float timeSplit = 1.f / 3.f;
         
         //_fimageView3
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * timeSplit * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView transitionWithView:self duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
+            [UIView transitionWithView:weakself duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
                 _phoneFlowImageView3.alpha = 1.f;
             } completion:^(BOOL finished) {
                 ;
             }];
         });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * timeSplit * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [UIView transitionWithView:self duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
+            [UIView transitionWithView:weakself duration:timeSplit options:UIViewAnimationOptionCurveLinear animations:^{
                 _phoneFlowImageView3.alpha = 0.f;
             } completion:^(BOOL finished) {
                 ;
@@ -257,7 +262,7 @@ static const float timeSplit = 1.f / 3.f;
         self.presentView.layer.mask = nil;
         [self.floatDelegate assistiveTocuhs];
     } else {
-        [self clipcircleImageFromView:self.presentView inRect:self.startFrame];
+        self.showImage = [self clipcircleImageFromView:self.presentView inRect:self.startFrame];
         [self.presentView removeFromSuperview];
         [self makeIntoAnimation];
     }
@@ -277,7 +282,8 @@ static const float timeSplit = 1.f / 3.f;
     maskLayerAnimation.fromValue = (__bridge id)(maskFinalBP.CGPath);
     maskLayerAnimation.toValue = (__bridge id)((maskStartBP.CGPath));
     maskLayerAnimation.duration = 0.5f;
-    maskLayerAnimation.delegate = self;
+    __weak typeof(self) weakSelf = self;
+    maskLayerAnimation.delegate = weakSelf;
     self.samllAnimation = maskLayerAnimation;
     //    maskLayerAnimation.fillMode = kCAFillModeForwards;
     maskLayerAnimation.removedOnCompletion = NO;
@@ -301,7 +307,8 @@ static const float timeSplit = 1.f / 3.f;
     maskLayerAnimation.fromValue = (__bridge id)(maskStartBP.CGPath);
     maskLayerAnimation.toValue = (__bridge id)((maskFinalBP.CGPath));
     maskLayerAnimation.duration = 0.5f;
-    maskLayerAnimation.delegate = self;
+    __weak typeof(self) weakSelf = self;
+    maskLayerAnimation.delegate = weakSelf;
     [maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
     
 }
@@ -410,8 +417,6 @@ static const float timeSplit = 1.f / 3.f;
     [self makeOuttoAnimation];
     
 }
-
-
 
 - (NSString *)changeTimeFormater:(NSInteger)time{
     NSInteger minutecount = time / 60;
